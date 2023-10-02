@@ -21,3 +21,33 @@
     background-color: transparent;
     border: 0;
 }
+
+table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0 14px;
+}
+
+.tr {
+    background-color: #1d1c20;
+}
+
+td:first-child,
+th:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+td:last-child,
+th:last-child {
+    border-radius: 8px 0 0 8px;
+}
+
+table th {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-transform: uppercase;
+}

@@ -22,7 +22,7 @@ export function Home() {
                     </tr>
                 </thead>
                 <tbody id='tbody'>
-                    <tr className={styles.trBody}>
+                    <tr className={styles.tr}>
                         <td className={styles.tdLabel}>
                             <Link to="/detail/btc">
                                 <span>Bitcoin</span> / BTC
