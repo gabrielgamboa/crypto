@@ -51,3 +51,29 @@ table th {
     color: #fff;
     text-transform: uppercase;
 }
+
+table th,
+table td {
+    padding: 14px;
+    text-align: center;
+}
+
+.tdLabel span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF
+}
+
+.tdLabel {
+    color: #BBB;
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.5s;
+}
+
+.link:hover {
+    color: #30beff;
+}

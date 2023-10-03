@@ -24,15 +24,15 @@ export function Home() {
         <tbody id='tbody'>
           <tr className={styles.tr}>
             <td className={styles.tdLabel}>
-              <Link to="/detail/btc">
+              <Link className={styles.link} to="/detail/btc">
                 <span>Bitcoin</span> / BTC
               </Link>
             </td>
             <td className={styles.tdLabel}>
-                            R$19.000,00
+              R$19.000,00
             </td>
             <td className={styles.tdLabel}>
-                            R$29.000,00
+              R$29.000,00
             </td>
             <td className={styles.tdLabel}>
               <span>-5.29</span>
