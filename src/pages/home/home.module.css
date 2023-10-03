@@ -77,3 +77,20 @@ table td {
 .link:hover {
     color: #30beff;
 }
+
+@media (max-width: 600px) {
+    table {
+      border: 0
+    }
+  
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      margin: -1px;
+      width: 1px;
+    }
+  }
