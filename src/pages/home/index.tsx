@@ -1,7 +1,7 @@
 import { BiSearch } from 'react-icons/bi'
 import styles from './home.module.css'
-import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { FormEvent, useEffect, useState } from 'react'
 
 
 interface CoinProps {
@@ -21,6 +21,8 @@ interface DataProps {
 
 export function Home() {
   const [coins, setCoins] = useState<CoinProps[]>([])
+  const [symbol, setSymbol] = useState("")
+  const navigate = useNavigate()
 
   function getCoins() {
     fetch('https://sujeitoprogramador.com/api-cripto/?key=67f9141787211428&pref=BRL')
@@ -41,7 +43,6 @@ export function Home() {
           }
         })
 
-        console.log(formatedCoins)
 
         setCoins(formatedCoins)
       })
@@ -55,12 +56,27 @@ export function Home() {
     getCoins()
   }, [])
 
+  function handleFormSubmit(e: FormEvent) {
+    e.preventDefault()
+    
+    if (symbol === "") {
+      alert('Digite algum símbolo para pesquisar')
+      return
+    }
+
+    navigate(`/details/${symbol}`)
+  }
+
 
   return (
     <main className={styles.container}>
-      <form className={styles.form}>
-        <input placeholder="Digite o nome da moeda" type="text" />
-        <button>
+      <form className={styles.form} onSubmit={handleFormSubmit}>
+        <input
+          placeholder="Digite o símbolo da moeda"
+          type="text" 
+          value={symbol}
+          onChange={(e) => setSymbol(e.target.value)}/>
+        <button type='submit'>
           <BiSearch size={30} color="#FFF"/>
         </button>
       </form>
