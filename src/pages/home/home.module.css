@@ -68,6 +68,14 @@ table td {
     color: #BBB;
 }
 
+.tdProfit {
+    color: #12f98a
+}
+
+.tdLoss {
+    color: #f91257
+}
+
 .link {
     text-decoration: none;
     color: #fff;
@@ -93,4 +101,42 @@ table td {
       margin: -1px;
       width: 1px;
     }
+
+    .tr {
+      border-bottom: 1px solid #fff;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .tr td {
+        border-bottom: 1px solid rgba(221, 221, 221, 0.160);
+        display: block;
+        font-size: 14px;
+        text-align: right;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    
+    td:first-child,
+    th:first-child {
+        border-radius: 0;
+    }
+
+    td:last-child,
+    th:last-child {
+        border-radius: 0;
+    }
+
+
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        float: left;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
   }
