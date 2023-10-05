@@ -3,6 +3,8 @@ import styles from './home.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { FormEvent, useEffect, useState } from 'react'
 
+import { price } from '../../utils/format-number'
+
 
 interface CoinProps {
   name: string;
@@ -29,11 +31,6 @@ export function Home() {
       .then(response => response.json())
       .then((data: DataProps) => {
         const dataCoins = data.coins.slice(0, 15)
-
-        const price = Intl.NumberFormat('pt-BR', {
-          style: 'currency',
-          currency: 'BRL'
-        })
 
         const formatedCoins = dataCoins.map(coin => {
           return {
