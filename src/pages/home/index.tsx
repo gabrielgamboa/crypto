@@ -92,7 +92,7 @@ export function Home() {
             return (
               <tr className={styles.tr}>
                 <td className={styles.tdLabel} data-label="Moeda">
-                  <Link className={styles.link} to="/detail/btc">
+                  <Link className={styles.link} to={`/details/${coin.symbol}`}>
                     <span>{coin.name}</span> / {coin.symbol}
                   </Link>
                 </td>

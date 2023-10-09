@@ -1,4 +1,4 @@
-// import styles from './detail.module.css'
+import styles from './detail.module.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { price } from '../../utils/format-number';
@@ -41,6 +41,9 @@ export function Detail() {
         setCoinDetail(resultData)
         setLoading(false)
       })
+      .catch(e => {
+        console.log(e)
+      })
   }
 
   useEffect(() => {
@@ -50,18 +53,26 @@ export function Detail() {
 
   if (loading) {
     return (
-      <div>
+      <div className={styles.container}>
         <h1>Carregando informações...</h1>
       </div>
     )
   }
 
   return (
-    <div className="cointainer">
-      <h1 className="title">
+    <div className={styles.container}>
+      <h1 className={styles.center}>
         {coinDetail?.name}
       </h1>
-      <p className="detail">{coinDetail?.symbol}</p>
+      <p>{coinDetail?.symbol}</p>
+
+      <section className={styles.coinInfos}>
+        <p>Preço: {coinDetail?.formatedPrice}</p>
+        <p>Maior preço 24h: {coinDetail?.formatedHighPrice} </p>
+        <p>Menor preço 24h: {coinDetail?.formatedLowPrice} </p>
+        <p>Delta 24h: <span className={styles.profit}>{coinDetail?.delta_24h} </span> </p>
+        <p>Valor mercado: {coinDetail?.formatedMarket} </p>
+      </section>
     </div>
   )
 }
