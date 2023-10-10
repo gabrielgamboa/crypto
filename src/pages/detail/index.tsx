@@ -1,7 +1,8 @@
 import styles from './detail.module.css'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { price } from '../../utils/format-number';
+import ClipLoader from 'react-spinners/ClipLoader'
 
 interface CoinDetailProps {
   name: string;
@@ -25,6 +26,7 @@ export function Detail() {
 
   const [coinDetail, setCoinDetail] = useState<CoinDetailProps>()
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
 
   function getCoinDetails() {
     fetch(`https://sujeitoprogramador.com/api-cripto/coin/?key=67f9141787211428&symbol=${symbol}`)
@@ -41,8 +43,9 @@ export function Detail() {
         setCoinDetail(resultData)
         setLoading(false)
       })
-      .catch(e => {
-        console.log(e)
+      .catch(() => {
+        window.alert('Moeda não encontrada, tente novamente com um nome válido')
+        navigate('/')
       })
   }
 
@@ -54,6 +57,7 @@ export function Detail() {
   if (loading) {
     return (
       <div className={styles.container}>
+        <ClipLoader color='#FFF' size={48}></ClipLoader>
         <h1>Carregando informações...</h1>
       </div>
     )

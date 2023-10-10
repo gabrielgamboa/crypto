@@ -2,6 +2,7 @@ import { BiSearch } from 'react-icons/bi'
 import styles from './home.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { FormEvent, useEffect, useState } from 'react'
+import ClipLoader from 'react-spinners/ClipLoader'
 
 import { price } from '../../utils/format-number'
 
@@ -24,6 +25,7 @@ interface DataProps {
 export function Home() {
   const [coins, setCoins] = useState<CoinProps[]>([])
   const [symbol, setSymbol] = useState("")
+  const [loading, setloading] = useState(true)
   const navigate = useNavigate()
 
   function getCoins() {
@@ -42,6 +44,7 @@ export function Home() {
 
 
         setCoins(formatedCoins)
+        setloading(false)
       })
       .catch(err =>{
         console.log(err)
@@ -64,6 +67,14 @@ export function Home() {
     navigate(`/details/${symbol}`)
   }
 
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <ClipLoader color='#FFF' size={48}></ClipLoader>
+        <h1>Carregando Criptos... </h1>
+      </div>
+    )
+  }
 
   return (
     <main className={styles.container}>
