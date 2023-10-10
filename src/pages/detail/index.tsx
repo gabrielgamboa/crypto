@@ -67,11 +67,11 @@ export function Detail() {
       <p>{coinDetail?.symbol}</p>
 
       <section className={styles.coinInfos}>
-        <p>Preço: {coinDetail?.formatedPrice}</p>
-        <p>Maior preço 24h: {coinDetail?.formatedHighPrice} </p>
-        <p>Menor preço 24h: {coinDetail?.formatedLowPrice} </p>
-        <p>Delta 24h: <span className={styles.profit}>{coinDetail?.delta_24h} </span> </p>
-        <p>Valor mercado: {coinDetail?.formatedMarket} </p>
+        <p><strong>Preço:</strong> {coinDetail?.formatedPrice}</p>
+        <p><strong>Maior preço 24h:</strong> {coinDetail?.formatedHighPrice} </p>
+        <p><strong>Menor preço 24h:</strong> {coinDetail?.formatedLowPrice} </p>
+        <p><strong>Delta 24h:</strong> <span className={styles.profit}>{coinDetail?.delta_24h} </span> </p>
+        <p><strong>Valor mercado:</strong> {coinDetail?.formatedMarket} </p>
       </section>
     </div>
   )

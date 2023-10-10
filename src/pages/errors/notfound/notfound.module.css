@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    margin-top: 16px;
+    gap: 14px;
+}
+
+.container a {
+    text-decoration: none;
+    color: #FFF;
+    background: #575757;
+    padding: 12px 24px;
+    border-radius: 16px;
+
+    transition: 0.5s;
+}
+
+.container a:hover {
+    transform: scale(1.1);
+    background: #30beff;
+}
